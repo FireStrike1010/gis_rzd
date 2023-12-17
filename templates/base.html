@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html style="width: 100%; min-width: 370px;">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='nice-forms.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <title>{% block title %}GIS РЖД{% endblock %}</title>
+<div class="header">
+    <ul>
+      <li><p><img src="{{ url_for('static',filename='GIS_РЖД_logo.png') }}" width="32px" height="32px" style="vertical-align: baseline;">
+      <li><p>GIS РЖД</p></li>
+      <li><a href="/">Главная</a><li>
+      <li><a href="/about_us">Про нас</a></li>
+      <li><a href="/about_api">API</a></li>
+    </ul>
+  </div>
+  </head>
+  <body>
+        {% block content %}{% endblock %}
+  </body>
+</html>

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<div class="left-column">
+<div class="form">
+  <form method="post" class="nice-form-group">
+  <h3>Найти точку:</h3>
+    <a>Участок:</a>
+    <select name="way">
+      {% for item in page.select_drop %}
+        <option value="{{ item }}"> {{ item }}</option>
+      {% endfor %}
+    </select>
+    <br>
+    <input type="submit" class="show_way_button" value="Показать весь участок" name="show_way">
+    <br>
+    <a>Километр:</a>
+    <input type="number" style="height:19px;" id="km" name="km" value="{{ page.km }}" min="0", max="9999">
+    <a>Пикет:</a>
+    <input type="number" style="height:19px;" id="p" name="p" value="{{ page.p }}" min="0", max="9">
+    <br>
+    <input type="submit" class="show_point_button" value="Найти точку" name="search_km_p">
+    {% if page.show_map_point: %}
+      <input type="checkbox" class="switch" style="margin-top:9px;" id="show_map" name="show_map" checked value="show_map">
+    {% else: %}
+      <input type="checkbox" class="switch" style="margin-top:9px;" id="show_map" name="show_map" value="show_map">
+    {% endif %}
+    <a style="padding-top: 10px;">Показать на карте</a>
+</form>
+</div>
+{% if page.created_point: %}
+<div class="point">
+  <h3>Точка:</h3>
+  <p>Участок: {{ page.point['name'] }}</p>
+  <p>Километр.Пикет: {{ page.point['km_p'] }}</p>
+  <p>Координаты: {{ page.point['str_coords'] }}</p>
+</div>
+{% endif %}
+{% if page.created_point: %}
+<div class="map_links">
+  <h3>Ссылки на точку:</h3>
+  <p><a target="_blank" rel="noopener noreferrer" href="{{ page.map_links['yandex'] }}">
+  <img src="{{ url_for('static',filename='yandex_maps_logo.svg') }}" width="16" height="16">Yandex Maps</a></p>
+  <p><a target="_blank" rel="noopener noreferrer" href="{{ page.map_links['google'] }}">
+  <img src="{{ url_for('static',filename='google_maps_logo.svg') }}" width="16" height="16">Google Maps</a></p>
+  <p><a target="_blank" rel="noopener noreferrer" href="{{ page.map_links['osm'] }}">
+  <img src="{{ url_for('static',filename='osm_logo.svg') }}" width="16" height="16">Open Street Map</a></p>
+</div>
+{% endif %}
+<br>
+</div>
+<div class="right-column">
+<div class="map">{{ page.map|safe }}</div>
+</div>
+</div>
+{% endblock %}
