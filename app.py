@@ -73,7 +73,7 @@ class Page:
             return
         self.map = self.ways[self.last_way]._plot_find_coords(self.point)._repr_html_()
 
-ways = init_ways('../PickleWays')
+ways = init_ways('PickleWays')
 
 app = Flask(__name__)
 app.json.ensure_ascii = False
