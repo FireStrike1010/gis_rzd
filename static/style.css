@@ -22,9 +22,9 @@ body{
     padding: 5px;
     display: block;
     white-space: nowrap;
-    font-size: larger;
+    font-size: x-large;
 }
-.header a {
+.header a{
     color: #CBE4DE;
     padding: 5px;
     text-decoration: none;
@@ -41,6 +41,27 @@ body{
     gap: 10px;
     white-space: nowrap;
     font-family: Arial, Helvetica, sans-serif;
+}
+.container-text {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-right: 10px;
+}
+.container-text div {
+    text-align: center;
+    height: auto;
+    width: 100%;
+    display: block;
+    background-color: #2E4F4F;
+    color: #CBE4DE;
+    border-radius: 35px;
+    padding-bottom: 5px;
+}
+.links{
+    text-decoration: underline;
+    color: #CBE4DE;
 }
 .left-column {
     display: flex;
@@ -121,6 +142,9 @@ body{
 .map_links a:hover{
     text-decoration: underline;
     color: #CBE4DE;
+}
+text p{
+    white-space: initial;
 }
 @media only screen and (max-width: 768px) {
     .container {
